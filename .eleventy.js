@@ -1,10 +1,8 @@
 module.exports = function(eleventyConfig) {
-  // Copy the public folder and assets to output
-  eleventyConfig.addPassthroughCopy("public");
-  eleventyConfig.addPassthroughCopy("src/**/*.jpg");
-  eleventyConfig.addPassthroughCopy("src/**/*.png");
-  eleventyConfig.addPassthroughCopy("src/**/*.webp");
-  eleventyConfig.addPassthroughCopy("src/**/*.jpeg");
+  // Copy assets from src to public during build
+  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/_includes/css");
+  eleventyConfig.addPassthroughCopy("src/_includes/js");
   
   // Add watch targets for CMS content
   eleventyConfig.addWatchTarget("./src/portfolio/");
@@ -33,7 +31,8 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",      // Where your source files are
       includes: "_includes",  // Your includes/templates
-      output: "public"   // Where the built site goes
+      data: "_data",      // Data files
+      output: "public"    // Where the built site goes
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
