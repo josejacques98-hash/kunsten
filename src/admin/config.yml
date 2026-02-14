@@ -1,0 +1,71 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: "src/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio Items"
+    label_singular: "Portfolio Item"
+    folder: "src/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Main Image", name: "image", widget: "image"}
+      - label: "Gallery Images"
+        name: "gallery"
+        widget: "list"
+        field: {label: "Image", name: "image", widget: "image"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "src/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Main Image", name: "image", widget: "image"}
+      - label: "Gallery Images"
+        name: "gallery"
+        widget: "list"
+        field: {label: "Image", name: "image", widget: "image"}
+      - {label: "Status", name: "status", widget: "select", options: ["ongoing", "completed"]}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "src/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Role", name: "role", widget: "string", required: false}
+      - {label: "Rating", name: "rating", widget: "number", valueType: "int", min: 1, max: 5}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+
+  - name: "heroSlides"
+    label: "Hero Slides"
+    folder: "src/hero"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image"}

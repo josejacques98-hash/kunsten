@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Blueprint grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e6ebf0" stroke-width="1" />
+  </pattern>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.6" />
+  
+  <!-- Hard hat -->
+  <path d="M400,200 Q500,200 550,250 Q600,300 550,350 L450,350 Q400,300 400,250 Z" fill="#333"/>
+  <path d="M400,200 L400,250 Q400,300 450,350 L550,350 Q600,300 550,250 Z" fill="#555"/>
+  <path d="M450,350 L450,400 Q400,380 350,400 L350,350 Z" fill="#444"/>
+  <path d="M550,350 L550,400 Q600,380 650,400 L650,350 Z" fill="#444"/>
+  
+  <!-- 404 Text on hard hat -->
+  <text x="400" y="290" font-family="Poppins, sans-serif" font-size="80" font-weight="700" text-anchor="middle" fill="#ff8f1f">404</text>
+  
+  <!-- Construction tools -->
+  <path d="M300,450 L350,500 L330,520 L280,470 Z" fill="#5370fe" />
+  <path d="M500,450 L450,500 L470,520 L520,470 Z" fill="#5370fe" />
+  <path d="M400,500 L400,550" stroke="#333" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Text -->
+  <text x="400" y="420" font-family="Poppins, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="#333">Oops! Page Under Construction</text>
+</svg>

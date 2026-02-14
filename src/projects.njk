@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: Ongoing Projects
+description: "View Kusten Contractor's portfolio of completed projects in Kenya. Explore our residential, commercial, and institutional construction work."
+---
+
+<section class="projects-hero">
+  <img data-src="/assets/images/high-view-house-with-garden-keys-blueprint.webp" loading="lazy" alt="symbol of handing over a house" />
+  <div class="breadcrumb">
+    <span class="breadcrumb-item"><a href="/">Home</a></span>
+    <span class="breadcrumb-item"><a href="/projects" class="active">Ongoing Projects</a></span>
+  </div>
+</section>
+
+<section class="carousel-wrapper">
+  <div class="container carousel-section scroll-animate delay-1" id="completed-projects">
+    <h1>Ongoing Projects</h1>
+    <p class="projects-p">This is a testament to our integrated process, where thoughtful design, rigorous execution, and seamless leadership converge to create timeless value. Each project embodies a collaborative pursuit—balancing aesthetic vision with structural integrity, sustainable principles, and human experience.</p>
+    <p class="portfolio-note"><i class="bi bi-hand-index"></i> Tap image for more views</p>
+    <div class="carousel-container scroll-animate delay-1">
+      <button class="nav-btn prev-btn"><i class="bi bi-chevron-left"></i></button>
+      <div class="carousel scroll-animate delay-1">
+        {% for project in collections.projects %}
+        <div class="card portfolio-card" data-index="{{ loop.index0 }}" data-project-index="{{ loop.index0 }}" data-gallery="{{ project.data.gallery | dump | escape }}">
+          <div class="card-img-container">
+            <img src="{{ project.data.image }}" alt="{{ project.data.title }}" class="card-img" loading="lazy">
+            {% if project.data.gallery and project.data.gallery.length > 1 %}
+            <div class="card-overlay">
+              <span class="view-more-text">View Gallery</span>
+              <div class="view-gallery-btn">
+                <i class="bi bi-images"></i>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">{{ project.data.title }}</h3>
+            {% if project.data.location %}
+            <p class="card-desc">{{ project.data.location }}</p>
+            {% endif %}
+            <p class="card-desc">{{ project.data.description }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="nav-btn next-btn"><i class="bi bi-chevron-right"></i></button>
+    </div>
+    <div class="indicators"></div>
+  </div>
+</section>
+
+<section class="why-choose-us-wrapper">
+  <div class="container why-choose-us-section scroll-animate delay-1">
+    <h2>Why Choose Kusten Contractors</h2>
+    <p class="section-subtitle">Delivering excellence through proven expertise and unwavering commitment</p>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card scroll-animate">
+        <div class="benefit-icon"><i class="bi bi-award-fill"></i></div>
+        <h3>Certified Professionals</h3>
+        <p>Our carefully selected team of credentialed construction professionals ensures your project adheres to all mandated building standards and regulatory requirements.</p>
+      </div>
+      
+      <div class="benefit-card scroll-animate" data-delay="0.1">
+        <div class="benefit-icon"><i class="bi bi-clock-history"></i></div>
+        <h3>Timely Delivery</h3>
+        <p>We implement rigorous project management systems guaranteeing 95% on-time completion, minimizing disruptions and keeping your project on schedule.</p>
+      </div>
+      
+      <div class="benefit-card scroll-animate" data-delay="0.2">
+        <div class="benefit-icon"><i class="bi bi-gem"></i></div>
+        <h3>Quality Assurance</h3>
+        <p>Every project undergoes 5-stage quality checks with material testing and structural integrity verification for lasting durability and safety.</p>
+      </div>
+      
+      <div class="benefit-card scroll-animate" data-delay="0.3">
+        <div class="benefit-icon"><i class="bi bi-cash-stack"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>Detailed BOQs with no hidden costs. We provide value engineering options to optimize your budget without compromising quality.</p>
+      </div>
+      
+      <div class="benefit-card scroll-animate" data-delay="0.4">
+        <div class="benefit-icon"><i class="bi bi-house-heart"></i></div>
+        <h3>Sustainable Building Solutions</h3>
+        <p>We incorporate eco-friendly materials and energy-efficient designs that reduce long-term operational costs while minimizing environmental impact.</p>
+      </div>
+      
+      <div class="benefit-card scroll-animate" data-delay="0.5">
+        <div class="benefit-icon"><i class="bi bi-people-fill"></i></div>
+        <h3>Client-Centric Approach</h3>
+        <p>Weekly progress updates, dedicated project managers, and open communication channels ensure you're informed at every stage.</p>
+      </div>
+    </div>
+    
+    <div class="stats-container">
+      <div class="stat-item scroll-animate">
+        <div class="stat-number" data-count="25">0</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item scroll-animate" data-delay="0.1">
+        <div class="stat-number" data-count="100">0</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-item scroll-animate" data-delay="0.2">
+        <div class="stat-number" data-count="10">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
