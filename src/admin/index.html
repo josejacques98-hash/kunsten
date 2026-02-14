@@ -8,5 +8,20 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+  // Initialize with your specific site URL
+  netlifyIdentity.init({
+    APIUrl: "https://kusten.netlify.app/.netlify/identity"
+  });
+  
+  // Optional: Auto-redirect after login
+  netlifyIdentity.on('init', user => {
+    if (!user) {
+      netlifyIdentity.on('login', () => {
+        document.location.href = '/admin/';
+      });
+    }
+  });
+</script>
 </body>
 </html>
