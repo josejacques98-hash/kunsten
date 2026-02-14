@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="/src/images/favicon.png" type="image/svg+xml" />
   <link href="/bundle.css" rel="stylesheet" />
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -54,6 +55,18 @@
   <script>
     // Your existing JavaScript will go here
     {% include "scripts.js" %}
+  </script>
+
+  <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if(!user){
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
   </script>
 </body>
 </html>
