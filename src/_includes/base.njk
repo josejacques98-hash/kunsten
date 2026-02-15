@@ -57,16 +57,30 @@
     {% include "scripts.js" %}
   </script>
 
-  <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if(!user){
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
+ <script>
+  // Check if we're in a Netlify environment or local
+  const isNetlify = window.location.hostname.includes('netlify.app') || 
+                    window.location.hostname === 'localhost' && window.location.port === '8888';
+  
+  if (isNetlify) {
+    // Load Netlify Identity widget
+    const script = document.createElement('script');
+    script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+    script.defer = true;
+    document.head.appendChild(script);
+    
+    script.onload = function() {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if(!user){
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
         });
       }
-    });
+    };
   }
-  </script>
+</script>
 </body>
 </html>
