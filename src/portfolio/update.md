@@ -1,5 +1,5 @@
 ---
-title: Update
+title: FWFWFW
 category: Bungalow
 description: 4Bedroom 4Baths
 image: /assets/images/gemini_generated_image_80c72x80c72x80c7.png
